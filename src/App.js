@@ -2,7 +2,7 @@ import React, {createContext, useCallback, useState} from 'react';
 import './App.css';
 import Contacts from './contacts';
 import Logo from './Logo';
-import {v4 as uuidv4} from 'uuid';
+// import {v4 as uuidv4} from 'uuid';
 
 export const ContactContext = createContext();
 
