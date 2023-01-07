@@ -2,22 +2,19 @@ import React, {createContext, useCallback, useState} from 'react';
 import './App.css';
 import Contacts from './contacts';
 import Logo from './Logo';
-// import {v4 as uuidv4} from 'uuid';
 
 export const ContactContext = createContext();
 
 function App() {
-  // NOTE: Use context provider in this component
   const createDefaultObj = () => {
     const obj = {
-      id: uuidv4(),
+      id: 0,
       channel: 'none',
       details: '',
     };
     return obj;
   };
 
-  // const [key, setKey] = useState(1);
   const defaultObj = createDefaultObj;
   const [contacts, setContacts] = useState([defaultObj]);
 

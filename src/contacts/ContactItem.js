@@ -1,7 +1,6 @@
-import React from 'react';
+import React, {memo} from 'react';
 import {IconButton} from '@mui/material';
 import stylescenter from './ContactItem.module.css';
-import {memo} from 'react';
 
 const options = [
   {value: 'none', label: ''},
