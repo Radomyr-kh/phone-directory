@@ -15,11 +15,12 @@ function App() {
     return obj;
   };
 
-  const defaultObj = createDefaultObj;
+  const defaultObj = createDefaultObj();
   const [contacts, setContacts] = useState([defaultObj]);
 
   const onChangeHandler = useCallback((e, idItem) => {
     let key;
+    console.log(e.target);
     e.target.name === 'optionSelected' ? (key = 'channel') : (key = 'details');
 
     setContacts((prev) =>

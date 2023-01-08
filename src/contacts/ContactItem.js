@@ -15,7 +15,6 @@ const ContactItem = memo(
     // NOTE: This component should take additional props
     // NOTE: and use them to manage state
 
-    console.log('child render', index);
     return (
       <div className={stylescenter.fullChannelControll}>
         <div className={stylescenter.channelAndChannel}>
