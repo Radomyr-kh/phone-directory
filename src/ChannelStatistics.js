@@ -9,7 +9,7 @@ function ChannelStatistics() {
 
   return (
     <p data-testid='statistics'>
-      count of channels: {channel.contacts.length} <br />
+      Count of channels: {channel.contacts.length} <br />
       {lastChannel !== 'none' ? `your last channel is: ${lastChannel}` : ''}
     </p>
   );
