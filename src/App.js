@@ -1,4 +1,4 @@
-import React, {createContext, useCallback, useState} from 'react';
+import React, {createContext, useCallback, useEffect, useState} from 'react';
 import './App.css';
 import Contacts from './contacts';
 import Logo from './Logo';
@@ -6,29 +6,40 @@ import Logo from './Logo';
 export const ContactContext = createContext();
 
 function App() {
+  const [id, setId] = useState(1);
+  const [channel, setChannel] = useState('none');
+  const [details, setDetails] = useState('');
+
   const createDefaultObj = () => {
     const obj = {
-      id: 0,
-      channel: 'none',
-      details: '',
+      id,
+      channel,
+      details,
     };
+
     return obj;
   };
 
   const defaultObj = createDefaultObj();
+
   const [contacts, setContacts] = useState([defaultObj]);
 
+  // ! don't understand this code
   const onChangeHandler = useCallback((e, idItem) => {
     let key;
-    console.log(e.target);
     e.target.name === 'optionSelected' ? (key = 'channel') : (key = 'details');
 
+    // ! don't understand this code
     setContacts((prev) =>
       prev.map((contact) =>
         contact.id === idItem ? {...contact, [key]: e.target.value} : contact
       )
     );
   }, []);
+
+  useEffect(() => {
+    setId(() => id + 1);
+  }, [contacts]);
 
   const create = () => {
     setContacts([...contacts, createDefaultObj()]);
