@@ -7,29 +7,23 @@ export const ContactContext = createContext();
 
 function App() {
   const [id, setId] = useState(1);
-  const [channel, setChannel] = useState('none');
-  const [details, setDetails] = useState('');
 
   const createDefaultObj = () => {
     const obj = {
-      id,
-      channel,
-      details,
+      id: id,
+      channel: 'none',
+      details: '',
     };
-
     return obj;
   };
 
   const defaultObj = createDefaultObj();
-
   const [contacts, setContacts] = useState([defaultObj]);
 
-  // ! don't understand this code
   const onChangeHandler = useCallback((e, idItem) => {
     let key;
     e.target.name === 'optionSelected' ? (key = 'channel') : (key = 'details');
 
-    // ! don't understand this code
     setContacts((prev) =>
       prev.map((contact) =>
         contact.id === idItem ? {...contact, [key]: e.target.value} : contact
